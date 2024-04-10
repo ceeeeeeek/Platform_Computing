@@ -13,7 +13,6 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-
 async function writeToCSV(filename, metrics) {
     const csvData = metrics.map(metric => Object.values(metric).join(', ')).join('\n');
     fs.writeFileSync(filename, Object.keys(metrics[0]).join(', ') + '\n' + csvData);
