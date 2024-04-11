@@ -20,7 +20,7 @@ async function userAction(action, driver, rewardTime, reqList) {
         for (const keyword of reqList) {
             if (await findText(driver, keyword)) {
                 console.log("found", keyword);
-                await driver.sleep(rewardTime * 1000);
+                await driver.sleep(rewardTime * 1000); //Multiply by 1000 milliseconds since 1 second is equivalent to 1000 miliseconds
                 totalRewardTime += rewardTime;
             } else {
                 console.log("not found");
@@ -29,7 +29,7 @@ async function userAction(action, driver, rewardTime, reqList) {
     } else if (action.toUpperCase() === "IMAGE") {
         const numImages = await countTagElem(driver, reqList);
         totalRewardTime = rewardTime * numImages;
-        await driver.sleep(totalRewardTime * 1000);
+        await driver.sleep(totalRewardTime * 1000); //Multiply by 1000 milliseconds since 1 second is equivalent to 1000 miliseconds
     }
     return totalRewardTime;
 }
@@ -58,4 +58,5 @@ async function main() {
     }
 }
 
-main();
+//main();
+main().catch(console.error);

@@ -18,7 +18,7 @@ async function main() {
 
         if (await findKeyword(driver, keyword)) {
             totalRewardTime += rewardTime;
-            await driver.sleep(rewardTime * 1000);
+            await driver.sleep(rewardTime * 1000); //Multiply by 1000 milliseconds since 1 second is equivalent to 1000 miliseconds
         } else {
             console.log('not found');
         }
