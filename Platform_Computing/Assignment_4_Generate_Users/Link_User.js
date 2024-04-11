@@ -36,7 +36,7 @@ async function userAction(action, driver, rewardTime, reqList) {
 }
 
 async function clickLink(driver, href) {
-    const links = await driver.findElements(By.tagName("a"));
+    const links = await driver.findElements(By.css("a"));
     if (links.length > 0) {
         await links[0].click();
     }
