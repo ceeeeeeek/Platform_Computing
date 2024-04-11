@@ -3,9 +3,9 @@ const sleep = (milliseconds) => new Promise(resolve => setTimeout(resolve, milli
 
 
 async function countElem(driver, tagName) {
-    //const elements = await driver.findElements(By.css(tagName)); // comment out later to achieve Presence Time: 0
-    //return elements.length; // comment out later to achieve Presence Time: 0
-    return 0 //the website exits right away because the Presence Time is 0
+    const elements = await driver.findElements(By.css(tagName)); // comment out later to achieve Presence Time: 0
+    return elements.length; // comment out later to achieve Presence Time: 0
+    //return 0 //the website exits right away because the Presence Time is 0
 }
 
 async function main() {
