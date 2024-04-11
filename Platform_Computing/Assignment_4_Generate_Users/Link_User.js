@@ -14,6 +14,7 @@ async function countTagElem(driver, tagNames) {
     return count;
 }
 
+//action is a string which is either keyword, image or link
 async function userAction(action, driver, rewardTime, reqList) {
     let totalRewardTime = 0;
     if (action.toUpperCase() === "KEYWORD") {
@@ -47,11 +48,12 @@ async function main() {
     try {
         // Navigate to your website
         await driver.get("http://localhost:3000/");
+
         const rewardTime = 10;
-        let totalRewardTime = await userAction("KEYWORD", driver, rewardTime, ["student", "test"]);
+        let totalRewardTime = await userAction("KEYWORD", driver, rewardTime, ["student", "CSUSB"]);
         const tagNames = ["img"];
         totalRewardTime += await userAction("IMAGE", driver, rewardTime, tagNames);
-        await clickLink(driver);
+        //await clickLink(driver);
         console.log("Presence Time", totalRewardTime);
     } finally {
         await driver.quit();
