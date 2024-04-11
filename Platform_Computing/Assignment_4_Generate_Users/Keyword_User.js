@@ -1,8 +1,11 @@
 const {By, Builder, Browser} = require('selenium-webdriver');
 
 async function findKeyword(driver, keyword) {
-    console.log((await driver.getPageSource()).toLowerCase()); // comment out later
-    return (await driver.getPageSource()).toLowerCase().includes(keyword.toLowerCase());
+    console.log((await driver.getPageSource()).toLowerCase()); 
+    return (await driver.getPageSource()).toLowerCase().includes(keyword.toLowerCase());// comment out later to achieve Presence Time: 0
+    //commented out above line of code to obtain output Presence Time: 0
+
+    //return false; //return false is used to simulate keyword student not found on my React Website to obtain Presence Time: 0
 }
 
 async function main() {
@@ -29,5 +32,4 @@ async function main() {
     }
 }
 
-//main();
 main().catch(console.error);
