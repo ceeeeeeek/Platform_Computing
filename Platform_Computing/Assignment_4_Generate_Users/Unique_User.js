@@ -62,11 +62,19 @@ async function main() {
         //const link = []; //Empty array to simulate no links found
         //the website will exit right away because the Presence Time is 0 if keywords, tagNames, and link are ALL empty arrays
 
-        //uncomment the 3 lines of code below so that keywords, tagnames, and link are NOT empty arrays to output a Presence Time
-        //and not a Presence Time of 0
-        const keywords = ["student", "CSUSB"];
+        //uncomment the 3 lines of code below so that keywords, tagnames, and link are NOT empty arrays to no longer 
+        //output a Presence Time of 0
+        //const keywords = ["student", "CSUSB"];
+        //const tagNames = ["img"];
+        //const link = ["a"];
+
+        //A Unique User's preferences are below
+        const keywords = ["active", "workout"];
         const tagNames = ["img"];
-        const link = ["a"];
+        const link = ["h"];
+        //This user prefers content related to exercise as hinted by the keywords "active and "workout".
+        //This user prefers images of step by step workout tutorials over video tutorials as evidenced by the tagnames = "img".
+        //Lastly, the user prefers links that direct to more helpful resources on the topics of working out and nutrition.
 
         totalRewardTime += await userAction("KEYWORD", driver, rewardTime, keywords);
         totalRewardTime += await userAction("IMAGE", driver, rewardTime, tagNames);
