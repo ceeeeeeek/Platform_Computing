@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 '''
 Returns number of elements given tag_name
 '''
-def countElem(driver, tag_name)->int:
+def countTagElem(driver, tag_name)->int:
     return len(driver.find_elements(By.TAG_NAME, tag_name))
 
 def main():
@@ -13,14 +13,14 @@ def main():
     driver = webdriver.Chrome()
     #Navigate to your website
     driver.get("http://localhost:3000/")
-    reward_time = 10
-    total_reward_time = 0
+    rewardTime = 10
+    totalRewardTime = 0
     tags = ["img"]
     for tag in tags:
-        num_images = countElem(driver, tag)
-        total_reward_time += reward_time*num_images
-        time.sleep(total_reward_time)
+        numImages = countTagElem(driver, tag)
+        totalRewardTime += rewardTime*numImages
+        time.sleep(totalRewardTime)
     driver.quit()
-    print("Presence Time:", total_reward_time)
+    print("Presence Time:", totalRewardTime)
 if __name__ == "__main__":
     main()

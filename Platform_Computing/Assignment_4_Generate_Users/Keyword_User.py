@@ -23,8 +23,8 @@ def main():
         total_reward_time += reward_time
         time.sleep(reward_time)
     else:
-        print("not found")
-    #example code if seeking multiple keywords
+        print(keyword, "not found")
+    #example code commented out if seeking multiple keywords
     #keywords = ["student", "test"] #a list of elements; for each keyword in the list, if the reward_time = 10, then the output of 2 keywords would be 'Presence Time: 20'
     #for key in keywords: #for loop used to iterate through elements in list with multiple keywords
         #if findKeyword(driver, key):

@@ -1,11 +1,10 @@
 const {By, Builder, Browser} = require('selenium-webdriver');
-const sleep = (milliseconds) => new Promise(resolve => setTimeout(resolve, milliseconds));
 
-
-async function countElem(driver, tagName) {
-    const elements = await driver.findElements(By.css(tagName)); // comment out later to achieve Presence Time: 0
-    return elements.length; // comment out later to achieve Presence Time: 0
-    //return 0 //the website exits right away because the Presence Time is 0
+async function countTagElem(driver, tagNames) {
+    const elements = await driver.findElements(By.css(tagNames)); // comment out later to achieve Presence Time: 0
+    return elements.length; // comment out later and uncomment out return 0 below to achieve Presence Time: 0
+    //return 0; //the website will exit right away because the Presence Time is 0
+    //if there are no images on the website, exits website immediately, and output will return Presence Time: 0
 }
 
 async function main() {
@@ -19,15 +18,15 @@ async function main() {
     const tags = ["img"];
     
     for (const tag of tags) {
-        const numImages = await countElem(driver, tag);
+        const numImages = await countTagElem(driver, tag);
         totalRewardTime += rewardTime * numImages;
-        await sleep(rewardTime * 1000 * numImages); //Multiply by 1000 milliseconds since 1 second is equivalent to 1000 miliseconds
     }
-    
+
     console.log("Presence Time:", totalRewardTime);
     
     // Don't exit site right away; keep the browser open for 40 seconds; Multiply by 1000 milliseconds since 1 second is equivalent to 1000 miliseconds
-    await sleep(totalRewardTime * 1000); 
+    await new Promise(resolve => setTimeout(resolve, totalRewardTime * 1000));
+    
     await driver.quit();
 }
 
